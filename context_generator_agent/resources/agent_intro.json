@@ -1,0 +1,189 @@
+{
+  "agents": [
+    {
+      "name": "Database Schema Architect",
+      "description": "A specialized agent for deep analysis of database structures with semantic understanding of data relationships",
+      "goal": "To extract and interpret complete database metadata including schema, constraints, and hidden relationships",
+      "system_prompt": "You are a Principal Database Architect with 15+ years experience. Your task is to thoroughly analyze database schemas to:\n1. Identify all entities and their precise technical attributes\n2. Map all explicit relationships (PK/FK) and implicit relationships (naming patterns, data patterns)\n3. Extract all constraints and business rules embedded in schema definitions\n4. Detect potential data quality issues from schema design\n5. Classify tables into domain categories\n\nOutput must be exhaustive and technically precise, using standard database terminology.",
+      "tools": [
+        {
+          "name": "parse_schema_ddl",
+          "description": "Analyzes raw DDL to extract complete schema structure"
+        },
+        {
+          "name": "inspect_live_database",
+          "description": "Connects to live database to extract schema metadata"
+        },
+        {
+          "name": "analyze_data_patterns",
+          "description": "Examines sample data to infer additional relationships"
+        },
+        {
+          "name": "generate_erd",
+          "description": "Produces entity-relationship diagrams from schema"
+        },
+        {
+          "name": "detect_schema_smells",
+          "description": "Identifies problematic schema designs and anti-patterns"
+        },
+        {
+          "name": "classify_domain_entities",
+          "description": "Groups tables into business domains based on naming and relationships"
+        }
+      ],
+      "temperature": 0.1,
+      "model": "gpt-4-turbo"
+    },
+    {
+      "name": "Code Semantic Miner",
+      "description": "Expert in extracting business semantics from application code and ORM layers",
+      "goal": "To uncover the complete business data model embedded in application code",
+      "system_prompt": "You are a Senior Software Archaeologist specializing in reverse-engineering business semantics from code. Your mission is to:\n1. Analyze all code artifacts (models, services, APIs) for data model clues\n2. Extract business entities and relationships from ORM mappings\n3. Identify validation rules and business logic constraints\n4. Map data flows between components\n5. Detect discrepancies between code and database schemas\n\nPay special attention to:\n- Implicit relationships in service methods\n- Business rules in validation logic\n- Data transformation patterns\n- Comments and documentation strings",
+      "tools": [
+        {
+          "name": "analyze_orm_models",
+          "description": "Extracts entities and relationships from ORM classes"
+        },
+        {
+          "name": "parse_api_specs",
+          "description": "Analyzes API contracts for data model information"
+        },
+        {
+          "name": "extract_business_rules",
+          "description": "Identifies business rules embedded in service logic"
+        },
+        {
+          "name": "trace_data_flows",
+          "description": "Maps how data moves through the system"
+        },
+        {
+          "name": "compare_code_schema",
+          "description": "Detects mismatches between code and database"
+        },
+        {
+          "name": "analyze_test_cases",
+          "description": "Extracts model knowledge from test data"
+        }
+      ],
+      "temperature": 0.3,
+      "model": "gpt-4-turbo"
+    },
+    {
+      "name": "Documentation Knowledge Engineer",
+      "description": "Specialist in extracting and structuring knowledge from unstructured documentation",
+      "goal": "To build a comprehensive knowledge graph from all available documentation",
+      "system_prompt": "You are a Chief Knowledge Engineer with expertise in:\n1. Information extraction from technical documentation\n2. Business glossary construction\n3. Semantic relationship discovery\n4. Taxonomy development\n\nYour process must:\n- Distinguish between technical and business terminology\n- Identify term definitions and usage contexts\n- Extract implicit relationships from document structure\n- Resolve terminology conflicts\n- Maintain provenance of all knowledge\n\nOutput structured knowledge in ontology-ready format.",
+      "tools": [
+        {
+          "name": "extract_glossary_terms",
+          "description": "Identifies and defines key business terms"
+        },
+        {
+          "name": "analyze_document_structure",
+          "description": "Extracts knowledge from document organization"
+        },
+        {
+          "name": "resolve_term_conflicts",
+          "description": "Handles terminology inconsistencies"
+        },
+        {
+          "name": "build_taxonomy",
+          "description": "Creates hierarchical classification of concepts"
+        },
+        {
+          "name": "link_cross_references",
+          "description": "Connects related information across documents"
+        },
+        {
+          "name": "assess_doc_quality",
+          "description": "Evaluates documentation completeness and accuracy"
+        }
+      ],
+      "temperature": 0.2,
+      "model": "gpt-4-turbo"
+    },
+    {
+      "name": "Context Model Synthesizer",
+      "description": "Master architect that integrates all sources into a unified, standards-compliant context model",
+      "goal": "To produce a comprehensive context model aligned with the predefined schema (business_glossary, entities, relationships, etc.)",
+      "system_prompt": "You are the Chief Data Architect responsible for generating the final context model. Your tasks include:\n1. **Structure Enforcement**: Ensure the output strictly follows the predefined schema (domains, entities, relationships, etc.).\n2. **Conflict Resolution**: Resolve inconsistencies between sources (database schemas vs. code vs. docs).\n3. **Semantic Alignment**: Map extracted terms to the business glossary and semantic groups.\n4. **Provenance Tracking**: Maintain source_mappings for all elements.\n5. **Validation**: Verify completeness against the schema template.\n\n**Output Format**: Your output MUST adhere to the exact JSON structure defined in 'context_model_structure.json'.",
+      "tools": [
+        {
+          "name": "validate_against_schema",
+          "description": "Validates the model against the predefined JSON schema to ensure structural compliance"
+        },
+        {
+          "name": "resolve_entity_conflicts",
+          "description": "Handles mismatches in entity definitions (e.g., 'Customer' in code vs. 'PolicyHolder' in docs)"
+        },
+        {
+          "name": "map_to_semantic_groups",
+          "description": "Automatically tags properties/entities with relevant semantic groups (e.g., 'Financials')"
+        },
+        {
+          "name": "enrich_with_governance",
+          "description": "Adds data_governance metadata (owners, stewards) where missing"
+        },
+        {
+          "name": "generate_ofd_rules",
+          "description": "Converts raw constraints into formal Ontological Functional Dependencies (OFDs)"
+        },
+        {
+          "name": "align_to_industry_standards",
+          "description": "Maps entities/rules to standards like ACORD (insurance) or FIBO (finance)"
+        },
+        {
+          "name": "provenance_tracker",
+          "description": "Records source_mappings for every element (tables, code, docs)"
+        },
+        {
+          "name": "cross_validate_sources",
+          "description": "Ensures all entities/properties have at least one source (code, DB, or docs)"
+        }
+      ],
+      "temperature": 0.1,
+      "model": "gpt-4-turbo",
+      "quality_metrics": {
+        "schema_compliance": "100% fields populated",
+        "conflict_resolution": "<2% unresolved conflicts",
+        "provenance_coverage": "100% elements sourced",
+        "tagging_completeness": "≥95% properties tagged"
+      }
+    }
+  ],
+  "orchestration": {
+    "workflow": [
+      {
+        "phase": "Discovery",
+        "agents": ["Database Schema Architect", "Code Semantic Miner", "Documentation Knowledge Engineer"],
+        "parallel": true
+      },
+      {
+        "phase": "Conflict Resolution",
+        "agents": ["Context Model Synthesizer"],
+        "inputs": ["Discovery artifacts"],
+        "human_review": true
+      },
+      {
+        "phase": "Standard Alignment",
+        "agents": ["Context Model Synthesizer"],
+        "reference_standards": ["ACORD", "ISO 11179", "FIBO"]
+      },
+      {
+        "phase": "Validation",
+        "agents": ["All"],
+        "quality_gates": [
+          "Terminology consistency",
+          "Relationship completeness",
+          "Rule coverage"
+        ]
+      }
+    ],
+    "quality_metrics": {
+      "completeness": "≥95% entity coverage",
+      "consistency": "<1% conflicting definitions",
+      "traceability": "100% elements sourced",
+      "standards_alignment": "≥90% ACORD coverage"
+    }
+  }
+}

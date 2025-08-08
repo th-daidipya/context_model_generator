@@ -1,0 +1,8 @@
+Our business has a few simple rules.
+
+A customer's email address must be a valid email format.
+All orders must have a positive quantity.
+The order_date should always be on or after the effective date of the customer record.
+We use product_id as the unique identifier for our products.
+The 'orders' table links our customers to their purchased products.
+The `insert_data.py` script is used to ingest new order records into the database.

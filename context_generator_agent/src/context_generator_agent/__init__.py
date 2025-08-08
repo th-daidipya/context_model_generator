@@ -1,0 +1,1 @@
+# AipalDataReader component package

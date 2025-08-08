@@ -1,0 +1,37 @@
+{
+  "domain": "Bakery",
+  "entities": [
+    {
+      "name": "Customer",
+      "properties": [
+        {"name": "CustomerID", "data_type": "TEXT", "tags": ["unique_id", "customer"]},
+        {"name": "EmailAddress", "data_type": "TEXT", "tags": ["email", "contact_info"]},
+        {"name": "FullName", "data_type": "TEXT", "tags": ["name"]}
+      ]
+    },
+    {
+      "name": "Product",
+      "properties": [
+        {"name": "ProductID", "data_type": "TEXT", "tags": ["unique_id", "product"]},
+        {"name": "Name", "data_type": "TEXT", "tags": ["name"]},
+        {"name": "Price", "data_type": "REAL", "tags": ["financials", "amount"]}
+      ]
+    },
+    {
+      "name": "Order",
+      "properties": [
+        {"name": "OrderID", "data_type": "TEXT", "tags": ["unique_id", "order"]},
+        {"name": "Quantity", "data_type": "INTEGER", "tags": ["quantity"]},
+        {"name": "OrderDate", "data_type": "TEXT", "tags": ["date", "timestamp"]}
+      ]
+    }
+  ],
+  "relationships": [
+    {"source": "Customer", "target": "Order", "type": "places", "cardinality": "one-to-many"},
+    {"source": "Order", "target": "Product", "type": "contains", "cardinality": "many-to-many"}
+  ],
+  "business_rules": [
+    {"rule_name": "Positive Order Quantity", "tags_involved": ["quantity"], "rule_type": "Denial Dependency"},
+    {"rule_name": "Valid Email Format", "tags_involved": ["email"], "rule_type": "Data Validation"}
+  ]
+}

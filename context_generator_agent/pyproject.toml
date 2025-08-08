@@ -13,13 +13,13 @@ packages = [{include = "context_generator_agent", from = "src"}]
 [tool.poetry.dependencies]
 python = ">=3.12,<4.0"
 
-# Relaxed version constraints to resolve dependency conflicts
-llama-index = ">=0.10.2,<0.12.0"
-llama-index-llms-ollama = ">=0.1.0,<0.2.0"
-llama-index-llms-openai = ">=0.1.0,<0.2.0"
-llama-index-embeddings-ollama = ">=0.1.0,<0.2.0"
-llama-index-embeddings-openai = ">=0.1.0,<0.2.0"
-llama-index-vector-stores-chroma = ">=0.1.0,<0.2.0"
+# Use specific stable versions to avoid conflicts
+llama-index = "^0.10.57"
+llama-index-llms-ollama = "^0.1.5"
+llama-index-llms-openai = "^0.1.22"
+llama-index-embeddings-ollama = "^0.1.2"
+llama-index-embeddings-openai = "^0.1.11"
+llama-index-vector-stores-chroma = "^0.1.9"
 chromadb = "^0.4.24"
 ollama = "^0.1"
 python-dotenv = "^1.0.1"

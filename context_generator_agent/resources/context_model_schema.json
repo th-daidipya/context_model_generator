@@ -1,0 +1,94 @@
+{
+        "business_glossary": [
+            {
+                "term": "string",
+                "definition": "string",
+                "synonyms": ["string", "string"],
+                "source_mappings": {
+                    "docs": ["string", "string"],
+                    "code": ["string", "string"]
+                }
+            }
+        ],
+        "business_capabilities": [
+            {
+                "name": "string",
+                "description": "string",
+                "sub_capabilities": ["string", "string"]
+            }
+        ],
+        "business_processes": [
+            {
+                "name": "string",
+                "description": "string",
+                "maps_to_capability": "string",
+                "steps": ["string", "string"],
+                "triggers_rules": ["string", "string"]
+            }
+        ],
+        "domains": [
+            {
+                "name": "string",
+                "description": "string",
+                "subdomains": [
+                    {
+                        "name": "string",
+                        "description": "string"
+                    }
+                ]
+            }
+        ],
+        "entities": [
+            {
+                "name": "string",
+                "description": "string",
+                "domain_mapping": {
+                    "domain": "string",
+                    "subdomain": "string"
+                },
+                "data_governance": {
+                    "data_owner": "string",
+                    "data_steward": "string",
+                    "access_permissions": ["string", "string"]
+                },
+                "properties": [
+                    {
+                        "name": "string",
+                        "description": "string",
+                        "data_type": "string",
+                        "source_mappings": {
+                            "tables": ["string", "string"],
+                            "codebase": ["string", "string"],
+                            "docs": ["string", "string"]
+                        }
+                    }
+                ]
+            }
+        ],
+        "relationships": [
+            {
+                "source_entity": "string",
+                "target_entity": "string",
+                "relationship_type": "string",
+                "cardinality": "string",
+                "description": "string",
+                "source_mappings": {
+                    "tables": ["string", "string"],
+                    "codebase": ["string", "string"],
+                    "docs": ["string", "string"]
+                }
+            }
+        ],
+        "business_rules": [
+            {
+                "rule_name": "string",
+                "description": "string",
+                "rule_type": "string",
+                "source_mappings": {
+                    "tables": ["string", "string"],
+                    "codebase": ["string", "string"],
+                    "docs": ["string", "string"]
+                }
+            }
+        ]
+}
